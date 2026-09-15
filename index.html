@@ -14,7 +14,9 @@
   --radius:16px;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
@@ -24,9 +26,13 @@ body{
   color:#e6f0ff;
 }
 
-.hidden{display:none!important}
+.hidden{
+  display:none!important;
+}
 
-/* LOGIN */
+/* =========================
+   LOGIN
+========================= */
 
 .login-screen{
   min-height:100vh;
@@ -103,6 +109,10 @@ body{
   cursor:pointer;
 }
 
+.login-button:active{
+  transform:scale(.98);
+}
+
 .login-error{
   display:none;
   margin-top:12px;
@@ -114,7 +124,9 @@ body{
   font-size:.85rem;
 }
 
-/* APP */
+/* =========================
+   APP
+========================= */
 
 .header{
   padding:14px 16px;
@@ -169,6 +181,10 @@ body{
   border-radius:14px;
   font-weight:700;
   cursor:pointer;
+}
+
+.action:active{
+  transform:scale(.98);
 }
 
 .grid{
@@ -229,6 +245,7 @@ body{
   display:flex;
   justify-content:space-around;
   padding:10px 0;
+  z-index:100;
 }
 
 .nav-item{
@@ -253,6 +270,7 @@ body{
   display:none;
   align-items:center;
   justify-content:center;
+  z-index:200;
 }
 
 .modal{
@@ -260,6 +278,7 @@ body{
   padding:20px;
   border-radius:16px;
   width:320px;
+  max-width:90%;
   text-align:center;
   color:#e6f0ff;
 }
@@ -282,9 +301,11 @@ body{
   padding:10px 16px;
   border-radius:10px;
   display:none;
+  z-index:300;
 }
 
 @media(max-width:600px){
+
   .grid{
     grid-template-columns:1fr;
   }
@@ -292,13 +313,16 @@ body{
   .actions{
     flex-direction:column;
   }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN SCREEN -->
+<!-- =========================
+     LOGIN SCREEN
+========================= -->
 
 <div class="login-screen" id="loginScreen">
 
@@ -317,7 +341,10 @@ body{
     <form onsubmit="login(event)">
 
       <div class="input-group">
-        <label>Usuario o correo electrónico</label>
+
+        <label>
+          Usuario o correo electrónico
+        </label>
 
         <input
           type="text"
@@ -325,10 +352,14 @@ body{
           placeholder="Introduce tu usuario"
           autocomplete="username"
           required>
+
       </div>
 
       <div class="input-group">
-        <label>Contraseña</label>
+
+        <label>
+          Contraseña
+        </label>
 
         <input
           type="password"
@@ -336,14 +367,23 @@ body{
           placeholder="Introduce tu contraseña"
           autocomplete="current-password"
           required>
+
       </div>
 
-      <button class="login-button" type="submit">
+      <button
+        class="login-button"
+        type="submit">
+
         Iniciar sesión
+
       </button>
 
-      <div class="login-error" id="loginError">
+      <div
+        class="login-error"
+        id="loginError">
+
         Usuario o contraseña incorrectos.
+
       </div>
 
     </form>
@@ -353,7 +393,9 @@ body{
 </div>
 
 
-<!-- MAIN APPLICATION -->
+<!-- =========================
+     MAIN APPLICATION
+========================= -->
 
 <div id="mainApp" class="hidden">
 
@@ -365,41 +407,72 @@ body{
 
     <button
       onclick="logout()"
-      style="background:#0005;color:#fff;border:none;padding:6px 10px;border-radius:8px">
+      style="
+        background:#0005;
+        color:#fff;
+        border:none;
+        padding:6px 10px;
+        border-radius:8px">
+
       Cerrar sesión
+
     </button>
 
   </div>
 
 
+  <!-- HOME -->
+
   <div class="app" id="home">
 
     <div class="card">
-      <div>Saldo de la billetera</div>
 
-      <div class="balance" id="balance">
-        $228,000.00
+      <div>
+        Saldo de la billetera
       </div>
+
+      <div
+        class="balance"
+        id="balance">
+
+        $228,000.00
+
+      </div>
+
     </div>
 
 
     <div class="demo-note">
-      Titularidad de la cuenta pendiente
+
+      Cambiar la titularidad para acceder a la cuenta
+
     </div>
 
 
     <div class="actions">
 
-      <div class="action" onclick="showFrozenModal()">
+      <div
+        class="action"
+        onclick="showFrozenModal()">
+
         Transferencia
+
       </div>
 
-      <div class="action" onclick="showFrozenModal()">
+      <div
+        class="action"
+        onclick="showFrozenModal()">
+
         Retiro
+
       </div>
 
-      <div class="action" onclick="showFrozenModal()">
+      <div
+        class="action"
+        onclick="showFrozenModal()">
+
         Pagar facturas
+
       </div>
 
     </div>
@@ -443,23 +516,35 @@ body{
   </div>
 
 
-  <div class="app hidden" id="finance">
+  <!-- FINANCE -->
+
+  <div
+    class="app hidden"
+    id="finance">
 
     <div class="panel">
 
-      <h3>Finanzas</h3>
+      <h3>
+        Finanzas
+      </h3>
 
       <p class="muted">
         Análisis de ingresos y gastos
       </p>
 
       <p>
-        <strong>Gastos mensuales:</strong>
+        <strong>
+          Gastos mensuales:
+        </strong>
+
         $6,150.00
       </p>
 
       <p>
-        <strong>Ahorros:</strong>
+        <strong>
+          Ahorros:
+        </strong>
+
         $23,000.00
       </p>
 
@@ -468,11 +553,17 @@ body{
   </div>
 
 
-  <div class="app hidden" id="rewards">
+  <!-- REWARDS -->
+
+  <div
+    class="app hidden"
+    id="rewards">
 
     <div class="panel">
 
-      <h3>Recompensas</h3>
+      <h3>
+        Recompensas
+      </h3>
 
       <p class="muted">
         Puntos disponibles
@@ -484,8 +575,16 @@ body{
 
       <button
         onclick="showFrozenModal()"
-        style="width:100%;padding:12px;border-radius:12px;border:none;background:var(--primary);color:#fff">
+        style="
+          width:100%;
+          padding:12px;
+          border-radius:12px;
+          border:none;
+          background:var(--primary);
+          color:#fff">
+
         Canjear recompensas
+
       </button>
 
     </div>
@@ -493,11 +592,17 @@ body{
   </div>
 
 
-  <div class="app hidden" id="cards">
+  <!-- CARDS -->
+
+  <div
+    class="app hidden"
+    id="cards">
 
     <div class="panel">
 
-      <h3>Tarjetas</h3>
+      <h3>
+        Tarjetas
+      </h3>
 
       <div class="card">
 
@@ -520,7 +625,11 @@ body{
   </div>
 
 
-  <div class="app hidden" id="me">
+  <!-- PROFILE -->
+
+  <div
+    class="app hidden"
+    id="me">
 
     <div class="panel">
 
@@ -529,17 +638,26 @@ body{
       </h3>
 
       <p>
-        <strong>Estado:</strong>
+        <strong>
+          Estado:
+        </strong>
+
         Verificada
       </p>
 
       <p>
-        <strong>País:</strong>
+        <strong>
+          País:
+        </strong>
+
         Colombia
       </p>
 
       <p>
-        <strong>Moneda:</strong>
+        <strong>
+          Moneda:
+        </strong>
+
         Dólar estadounidense (USD)
       </p>
 
@@ -548,7 +666,9 @@ body{
   </div>
 
 
-  <!-- NAVIGATION -->
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
   <div class="nav">
 
@@ -557,6 +677,7 @@ body{
       onclick="switchTab('home',this)">
 
       <div>🏠</div>
+
       Inicio
 
     </div>
@@ -567,6 +688,7 @@ body{
       onclick="switchTab('rewards',this)">
 
       <div>🎁</div>
+
       Recompensas
 
     </div>
@@ -577,6 +699,7 @@ body{
       onclick="switchTab('finance',this)">
 
       <div>📈</div>
+
       Finanzas
 
     </div>
@@ -587,6 +710,7 @@ body{
       onclick="switchTab('cards',this)">
 
       <div>💳</div>
+
       Tarjetas
 
     </div>
@@ -597,6 +721,7 @@ body{
       onclick="switchTab('me',this)">
 
       <div>👤</div>
+
       Yo
 
     </div>
@@ -606,35 +731,55 @@ body{
 </div>
 
 
-<!-- MODAL -->
+<!-- =========================
+     MODAL
+========================= -->
 
-<div class="modal-back" id="modalBack">
+<div
+  class="modal-back"
+  id="modalBack">
 
-  <div class="modal" id="modal"></div>
+  <div
+    class="modal"
+    id="modal">
+  </div>
 
 </div>
 
 
-<div class="toast" id="toast"></div>
+<div
+  class="toast"
+  id="toast">
+</div>
 
 
 <script>
 
+/* =========================
+   DATA
+========================= */
+
 let balanceValue = 228000;
 
 let tx = [];
+
 
 const $ = id =>
   document.getElementById(id);
 
 
 /* =========================
-   LOGIN
+   LOGIN CREDENTIALS
 ========================= */
 
 const REAL_USERNAME = "rosaliamartine";
+
 const REAL_PASSWORD = "Ros1978";
 
+
+/* =========================
+   LOGIN
+========================= */
 
 function login(event){
 
@@ -657,11 +802,30 @@ function login(event){
 
     error.style.display = "none";
 
-    $("loginScreen").classList.add("hidden");
+    /*
+      SAVE LOGIN SESSION
+      This makes the login survive
+      page refreshes.
+    */
 
-    $("mainApp").classList.remove("hidden");
+    localStorage.setItem(
+      "walletLoggedIn",
+      "true"
+    );
 
-    showToast("Inicio de sesión correcto");
+
+    $("loginScreen")
+      .classList
+      .add("hidden");
+
+    $("mainApp")
+      .classList
+      .remove("hidden");
+
+
+    showToast(
+      "Inicio de sesión correcto"
+    );
 
   }else{
 
@@ -678,17 +842,63 @@ function login(event){
 
 function logout(){
 
-  $("mainApp").classList.add("hidden");
+  /*
+    REMOVE SAVED LOGIN SESSION
+  */
 
-  $("loginScreen").classList.remove("hidden");
+  localStorage.removeItem(
+    "walletLoggedIn"
+  );
+
+
+  $("mainApp")
+    .classList
+    .add("hidden");
+
+  $("loginScreen")
+    .classList
+    .remove("hidden");
+
 
   $("username").value = "";
 
   $("password").value = "";
 
-  $("loginError").style.display = "none";
+  $("loginError")
+    .style
+    .display = "none";
 
-  showToast("Sesión cerrada");
+
+  showToast(
+    "Sesión cerrada"
+  );
+
+}
+
+
+/* =========================
+   RESTORE LOGIN
+========================= */
+
+function restoreLogin(){
+
+  const savedLogin =
+    localStorage.getItem(
+      "walletLoggedIn"
+    );
+
+
+  if(savedLogin === "true"){
+
+    $("loginScreen")
+      .classList
+      .add("hidden");
+
+    $("mainApp")
+      .classList
+      .remove("hidden");
+
+  }
 
 }
 
@@ -698,10 +908,13 @@ function logout(){
 ========================= */
 
 const fmt = n =>
-  n.toLocaleString("en-US",{
-    minimumFractionDigits:2,
-    maximumFractionDigits:2
-  });
+  n.toLocaleString(
+    "en-US",
+    {
+      minimumFractionDigits:2,
+      maximumFractionDigits:2
+    }
+  );
 
 
 /* =========================
@@ -713,13 +926,17 @@ function showToast(t){
   const toast =
     $("toast");
 
+
   toast.textContent = t;
 
-  toast.style.display = "block";
+  toast.style.display =
+    "block";
+
 
   setTimeout(() => {
 
-    toast.style.display = "none";
+    toast.style.display =
+      "none";
 
   },2000);
 
@@ -733,19 +950,29 @@ function showToast(t){
 function addFrozenNote(container){
 
   if(
-    container.querySelector(".frozen-note")
+    container.querySelector(
+      ".frozen-note"
+    )
   ) return;
 
+
   const note =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
 
   note.className =
     "frozen-note";
 
-  note.innerHTML =
-    "El cambio de titularidad de la cuenta de Rosalia Martine a Jose Alexis Santos Garcia, pendiente de completarse, requiere 10.000 lempiras.";
 
-  container.appendChild(note);
+  note.innerHTML =
+    "Inicio de sesión en el nuevo sistema: antes de poder realizar una transferencia, debe cambiar el nombre del titular de la cuenta de Rosalia Martine.";
+
+
+  container.appendChild(
+    note
+  );
 
 }
 
@@ -758,27 +985,42 @@ function switchTab(id,el){
 
   document
     .querySelectorAll(".app")
-    .forEach(a =>
-      a.classList.add("hidden")
-    );
+    .forEach(a => {
+
+      a.classList.add(
+        "hidden"
+      );
+
+    });
 
 
   document
     .querySelectorAll(".nav-item")
-    .forEach(n =>
-      n.classList.remove("active")
-    );
+    .forEach(n => {
+
+      n.classList.remove(
+        "active"
+      );
+
+    });
 
 
   const app =
     $(id);
 
-  app.classList.remove("hidden");
 
-  el.classList.add("active");
+  app.classList.remove(
+    "hidden"
+  );
 
 
-  $("pageTitle").textContent =
+  el.classList.add(
+    "active"
+  );
+
+
+  $("pageTitle")
+    .textContent =
     el.innerText;
 
 
@@ -800,17 +1042,17 @@ function showFrozenModal(){
   $("modal").innerHTML = `
 
     <h3>
-      Cuenta pendiente
+      Cuenta bloqueada
     </h3>
 
     <p class="muted">
 
-      El cambio de titularidad de la cuenta de Rosalia Martine a Jose Alexis Santos Garcia, pendiente de completarse, requiere 10.000 lempiras.
+      Inicio de sesión en el nuevo sistema: antes de poder realizar una transferencia, debe cambiar el nombre del titular de la cuenta de Rosalia Martine.
 
     </p>
 
     <button
-      onclick="modalBack.style.display='none'">
+      onclick="closeModal()">
 
       Cerrar
 
@@ -819,8 +1061,22 @@ function showFrozenModal(){
   `;
 
 
-  $("modalBack").style.display =
-    "flex";
+  $("modalBack")
+    .style
+    .display = "flex";
+
+}
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+function closeModal(){
+
+  $("modalBack")
+    .style
+    .display = "none";
 
 }
 
@@ -831,17 +1087,22 @@ function showFrozenModal(){
 
 function render(){
 
-  $("balance").textContent =
+  $("balance")
+    .textContent =
     "$" + fmt(balanceValue);
 
 
-  $("txList").innerHTML = "";
+  $("txList")
+    .innerHTML = "";
 
 
   tx.forEach(t => {
 
     const d =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
+
 
     d.className =
       "tx";
@@ -877,7 +1138,8 @@ function render(){
     `;
 
 
-    $("txList").appendChild(d);
+    $("txList")
+      .appendChild(d);
 
   });
 
@@ -885,7 +1147,7 @@ function render(){
 
 
 /* =========================
-   DATA
+   TRANSACTION DATA
 ========================= */
 
 (function(){
@@ -940,6 +1202,13 @@ function render(){
   render();
 
 })();
+
+
+/* =========================
+   START APPLICATION
+========================= */
+
+restoreLogin();
 
 </script>
 
